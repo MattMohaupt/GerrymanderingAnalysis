@@ -1,0 +1,20 @@
+*********************************************************
+ourvector<8eliginfo> stats:
+ # of vectors created:   1
+ # of elements inserted: 10
+ # of elements accessed: 0
+*********************************************************
+*********************************************************
+ourvector<12districtinfo> stats:
+ # of vectors created:   1
+ # of elements inserted: 10
+ # of elements accessed: 120
+*********************************************************
+
+With using the stats, load, and search function on districts_short.txt and eligible_voters_short.txt only 2 ourvectors were created. 
+The ourvector ei with type eliginfo was created on line 144 and the ourvector di with type districtinfo was created on line 143.
+ei was populated on line 118 which gets called by user input load on line 193 using the push_back() function in a for loop that would only end once there was no more lines of info in the data set that was given to ei. In this case eligible_voters_short.txt was 10 lines long so only 10 elements were created in ei.
+di was populated the same way on line 99 which gets called by user input load on line 212. The data set given to it was districts_short.txt that is 10 lines long, so di has 10 elements.
+ei's elements are never accessed because my user input for stats doesnt do anything in my function so the total number of eligible voters is never needed and thus never called upon.
+di's elements is accessed in user input search, where a for each loop goes each element and accesses the elements location name until Illinois is found and since the function loweritall accesses each character if location name, it accesses di 28 times. that is done again in user input stats making di accessed 56 times. 
+di is also accessed in loadeligdata where the location names from ei and di are compared and that happens 55 times as we have to search through di to until ei and di location names are equal. 
